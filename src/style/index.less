@@ -1,0 +1,92 @@
+
+.fs(@px){
+	font-size: unit(@px / 37.5, rem);
+}
+
+.w(@px){
+	width: unit(@px / 37.5, rem);
+}
+
+.h(@px){
+	height: unit(@px / 37.5, rem);
+}
+
+.lh(@px){
+	line-height: unit(@px / 37.5, rem);
+}
+
+.mt(@px){
+	margin-top: unit(@px / 37.5, rem);
+}
+
+.ml(@px){
+	margin-left: unit(@px / 37.5, rem);
+}
+
+.mb(@px){
+	margin-bottom: unit(@px / 37.5, rem);
+}
+
+.mr(@px){
+	margin-right: unit(@px / 37.5, rem);
+}
+
+.pt(@px){
+	padding-top: unit(@px / 37.5, rem);
+}
+
+.pl(@px){
+	padding-left: unit(@px / 37.5, rem);
+}
+
+.pb(@px){
+	padding-bottom: unit(@px / 37.5, rem);
+}
+
+.pr(@px){
+	padding-right: unit(@px / 37.5, rem);
+}
+
+html,body{
+	min-height: 100%;
+	width: 100%;
+	margin:0;
+	padding:0
+}
+
+body{
+	.fs(16);
+	background-color: @bodyBgColor;
+}
+
+button{
+	outline-width: 0;
+	border-width: 0;
+}
+
+.ng-enter{
+	transition:0.5s linear all;
+	opacity:0;
+}
+
+.ng-enter-active{
+	opacity:1;
+}
+
+@import 'property.less';
+@import 'template/head.less';
+@import 'template/foot.less';
+@import 'template/positionList.less';
+@import 'template/position.less';
+@import 'template/positionInfo.less';
+@import 'template/companyInfo.less';
+@import 'template/positionClass.less';
+@import 'template/search.less';
+@import 'template/tab.less';
+@import 'template/sheet.less';
+@import 'template/login.less';
+@import 'template/register.less';
+@import 'template/me.less';
+@import 'template/post.less';
+@import 'template/favorite.less';
+@import 'template/main.less';

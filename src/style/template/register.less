@@ -1,0 +1,118 @@
+.register{
+	background-image: url(../image/background.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	form{
+		.mt(55);
+		.form-line{
+			margin:0 auto;
+			.w(300);
+			.h(40);
+			.lh(40);
+			background: @formBgColor;
+			color: @defaultColor;
+			&:first-child{
+				margin-bottom: 2px;
+			}
+			.account{
+				background-image:url(../image/account.png);
+				background-repeat: no-repeat;
+				background-color: @formImgBgColor;
+				background-position: 17px 10px;
+				.w(55);
+				.h(40);
+			}
+			.lock{
+				background-image:url(../image/lock.png);
+				background-repeat: no-repeat;
+				background-color: @formImgBgColor;
+				background-position: 17px 10px;
+				.w(55);
+				.h(40);
+			}
+			input{
+				border-width: 0;
+				outline-width: 0;
+				background: rgba(0,0,0,0);
+				text-indent: 15px;
+				.h(40);
+				.w(240);
+				color:@defaultColor;
+				&::-webkit-input-placeholder{
+					color: @defaultColor;
+				}
+			}
+			.ng-invalid+span>p{
+				position: absolute;
+				top:-12px;
+				right:0;
+				color: @dangerColor;
+				.fs(12);
+			}
+			
+		}
+		.message-wrap{
+			.ng-invalid+span>p{
+				position: absolute;
+				top:-12px;
+				right:130px;
+				color: @dangerColor;
+				.fs(12);
+			}
+			.mt(40);
+			.lh(42);
+			.message-box{
+				border-width: 0;
+				outline-width: 0;
+				background: @formBgColor;
+				text-indent: 15px;
+				.h(40);
+				.w(190);
+				color:@defaultColor;
+				&::-webkit-input-placeholder{
+					color: @defaultColor;
+				}
+			}
+			.message{
+				display: inline-block;
+				color: @headBgColor;
+				border: 1px solid @headBgColor;
+				padding: 5px;
+				vertical-align: middle;
+				.ml(22)	;
+				.fs(12);
+				.w(70);
+				.h(25);
+				.lh(25)	;
+				&.disabled{
+					color: @lineColor;
+					border: 1px solid @lineColor;
+				}
+			}
+		}
+
+	}
+	button{
+		margin:0 auto;
+		.w(300);
+		.h(35);
+		font-size: 22px;
+		font-weight: 700;
+		&.login-btn{
+			background: @headBgColor;
+			color: @defaultColor;
+			margin-top: 50px;
+		}
+		&.register-btn{
+			color: @defaultColor; 
+			background: @btnBgColor;
+			margin-top: 20px;
+			border:1px solid @headBgColor;
+		}
+	}
+}

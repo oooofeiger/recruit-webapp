@@ -1,0 +1,42 @@
+@import '../variable.less';
+
+.position-list{
+	margin: 0;
+	padding: 0;
+	.item{
+		padding: 7px 0 7px 3px;
+		list-style: none;
+		border-bottom: 1px solid @listLineColor;
+		.logo{
+			.w(65);
+			.h(65);
+			margin-right: 13px;
+		}
+		.title{
+			margin: 0;
+		}
+		.text{
+			margin: 0;
+		}
+		.salary{
+			.pl(20);
+		}
+		.icon{
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			.h(28);
+			.w(30);
+			top:14px;
+			right: 12px;
+			&.star{
+				background-image: url(../image/star.png);
+			}
+			&.star-active{
+				background-image: url(../image/star-active.png);
+			}
+		}
+		.salary{
+			color: @dangerColor;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<title>webapp</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div ui-view></div>
+
+	<script>
+		document.getElementsByTagName('html')[0].style.fontSize = window.screen.width / 10 + 'px';
+
+		function getDefaultStyle(obj,attribute){  
+			if(obj){
+				return obj.currentStyle?obj.currentStyle[attribute] : document.defaultView.getComputedStyle(obj,false)[attribute];   
+			}
+		 } 
+
+	    window.onload = function(){
+	    	var startHeight = window.innerHeight;
+		    var form = document.getElementsByTagName('form')[0];
+		    var marginTopValue = getDefaultStyle(form,'marginTop');//保存原始marginTop值
+		    var input = document.getElementsByTagName('input')[0];
+			
+		    window.addEventListener("resize", function() {
+		    	var changedHeight = window.innerHeight
+		    	if(form){
+		    		if(changedHeight < startHeight){
+			      	  form.style.marginTop = "4rem"
+			    	}else{
+			    		form.style.marginTop = marginTopValue
+			    	}
+		    	}
+			    	
+		    });
+	    }
+	 
+	</script>
+	<script src="vendor/angular/angular.min.js"></script>
+	<script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="vendor/angular-cookies/angular-cookies.min.js"></script>
+	<script src="vendor/angular-validation/dist/angular-validation.min.js"></script>
+	<script src="vendor/angular-animate/angular-animate.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
