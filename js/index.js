@@ -317,7 +317,7 @@ angular.module('app').directive('appCompany',[function(){
 	return {
 		restrict : 'A',
 		replace : true,
-		templateUrl : '../view/template/company.html',
+		templateUrl : '/recruit-webapp/view/template/company.html',
 		scope: {
 			com: '='
 		}
@@ -327,14 +327,14 @@ angular.module('app').directive('appFoot',[function(){
 	return {
 		restrict : 'A',
 		replace : true,
-		templateUrl : '../view/template/foot.html'
+		templateUrl : '/recruit-webapp/view/template/foot.html'
 	}
 }])
 angular.module('app').directive('appHead',['cache',function(cache){
 	return {
 		restrict : 'A',
 		replace : true,
-		templateUrl : '../view/template/head.html',
+		templateUrl : '/recruit-webapp/view/template/head.html',
 		link: function(scope){
 			scope.name = cache.get('name');
 		}
@@ -344,7 +344,7 @@ angular.module('app').directive('appHeadBar',[function(){
 	return {
 		restrict : 'A',
 		replace : true,
-		templateUrl : '../view/template/headBar.html',
+		templateUrl : '/recruit-webapp/view/template/headBar.html',
 		scope : {
 			text : '@'
 		},
@@ -360,7 +360,7 @@ angular.module('app').directive('appPositionClass', [function(){
 	return {
 		restrict : 'A',
 		replace : true,
-		templateUrl : '../view/template/positionClass.html',
+		templateUrl : '/recruit-webapp/view/template/positionClass.html',
 		scope: {
 			com : '='
 		},
@@ -384,7 +384,7 @@ angular.module('app').directive('appPositionInfo',['$http',function($http){
 	return {
 		restrict : 'A',
 		replace : true,
-		templateUrl: '../view/template/positionInfo.html',
+		templateUrl: '/recruit-webapp/view/template/positionInfo.html',
 		scope : {
 			isLogin: '=',
 			pos: '='
@@ -416,7 +416,7 @@ angular.module('app').directive('appPositionList',['$http',function($http){
 	return {
 		restrict : 'A',
 		replace : true,
-		templateUrl: '../view/template/positionList.html',
+		templateUrl: '/recruit-webapp/view/template/positionList.html',
 		scope : {
 			data : '=',
 			filterObj : '=',
@@ -436,7 +436,7 @@ angular.module('app').directive('appSheet',[ function(){
 	return {
 		restrict : 'A',
 		replace: true,
-		templateUrl : '../view/template/sheet.html',
+		templateUrl : '/recruit-webapp/view/template/sheet.html',
 		scope: {
 			list: '=',
 			visible: '=',
@@ -448,7 +448,7 @@ angular.module('app').directive('appTab', [function(){
 	return {
 		restrict : 'A',
 		replace: true,
-		templateUrl : '../view/template/tab.html',
+		templateUrl : '/recruit-webapp/view/template/tab.html',
 		scope:{
 			tabClick: '&',
 			list: '='
