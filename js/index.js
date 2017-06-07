@@ -3,13 +3,13 @@
 angular.module('app',['ui.router','ngCookies','validation','ngAnimate'])
 //定义一个全局变量dict，run是页面编译之前就运行了
 angular.module('app').value('dict', {}).run(['$http','dict', function($http, dict){
-	$http.get('data/city.json').then(function(res){
+	$http.get('/recruit-webapp/data/city.json').then(function(res){
 		dict.city = res.data;
 	});
-	$http.get('data/salary.json').then(function(res){
+	$http.get('/recruit-webapp/data/salary.json').then(function(res){
 		dict.salary = res.data;
 	});
-	$http.get('data/scale.json').then(function(res){
+	$http.get('/recruit-webapp/data/scale.json').then(function(res){
 		dict.scale = res.data;
 	});
 }])
@@ -109,18 +109,18 @@ angular.module('app').config(['$validationProvider', function($validation){
 angular.module('app').controller('companyCtrl',['$scope','$http','$state','cache',function($scope, $http, $state, cache){
 	cache.set('abc', '123');
 	console.log(cache.get('abc'))
-	$http.get('/data/company.json?id='+$state.params.id).then(function(res){
+	$http.get('/recruit-webapp/data/company.json?id='+$state.params.id).then(function(res){
 		$scope.company = res.data;
 	})
 }])
 angular.module('app').controller('favoriteCtrl',['$scope','$http', function($scope, $http){
-	$http.get('data/myFavorite.json').then(function(res){
+	$http.get('/recruit-webapp/data/myFavorite.json').then(function(res){
 		$scope.list = res.data;
 	})
 }])
 angular.module('app').controller('loginCtrl',['$scope','$http','$state','cache', function($scope, $http, $state, cache){
 	$scope.submit = function(){
-		$http.post('data/login.json', $scope.user).then(function(res){
+		$http.post('/recruit-webapp/data/login.json', $scope.user).then(function(res){
 			cache.set('id', res.data.id);
 			cache.set('name', res.data.name);
 			cache.set('image', res.data.image);
@@ -130,7 +130,7 @@ angular.module('app').controller('loginCtrl',['$scope','$http','$state','cache',
 	}
 }])
 angular.module('app').controller('mainCtrl',['$http','$scope',function($http,$scope){
-	$http.get('/data/positionList.json').then(function(res){
+	$http.get('/recruit-webapp/data/positionList.json').then(function(res){
 		console.log(res)
 		$scope.list = res.data;
 	})
@@ -153,7 +153,7 @@ angular.module('app').controller('positionCtrl',['$scope','$http','$state','$q',
 	$scope.message = $scope.isLogin?'投个简历':'去登陆';
 	function getPosition(){
 		var def = $q.defer();
-		$http.get('/data/position.json?id='+$state.params.id).then(function(res){
+		$http.get('/recruit-webapp/data/position.json?id='+$state.params.id).then(function(res){
 			$scope.position = res.data;
 			if($scope.posted){
 				$scope.message = '已投递'
@@ -165,7 +165,7 @@ angular.module('app').controller('positionCtrl',['$scope','$http','$state','$q',
 		return def.promise;
 	}
 	function getCompany(id){
-		$http.get('/data/company.json?id='+id).then(function(res){
+		$http.get('/recruit-webapp/data/company.json?id='+id).then(function(res){
 			$scope.company = res.data;
 		})
 	}
@@ -177,7 +177,7 @@ angular.module('app').controller('positionCtrl',['$scope','$http','$state','$q',
 	$scope.go = function(){
 		if($scope.message !== '已投递'){
 			if($scope.isLogin){
-				$http.post('data/handle.json', {id:$scope.position.id}).then(function(res){
+				$http.post('/recruit-webapp/data/handle.json', {id:$scope.position.id}).then(function(res){
 					console.log(res.data);
 					$scope.message = '已投递'
 				})
@@ -199,7 +199,7 @@ angular.module('app').controller('postCtrl',['$scope','$http', function($scope, 
 		name: '不合适'
 	}];
 
-	$http.get('data/myPost.json').then(function(res){
+	$http.get('/recruit-webapp/data/myPost.json').then(function(res){
 		$scope.positionList = res.data;
 	});
 
@@ -220,7 +220,7 @@ angular.module('app').controller('postCtrl',['$scope','$http', function($scope, 
 }])
 angular.module('app').controller('registerCtrl',['$scope','$http','$interval','$state', function($scope, $http, $interval,$state){
 	$scope.submit = function(){
-		$http.post('data/regist.json', $scope.user).then(function(res){
+		$http.post('/recruit-webapp/data/regist.json', $scope.user).then(function(res){
 			$state.go('login')
 		})
 	};
@@ -228,7 +228,7 @@ angular.module('app').controller('registerCtrl',['$scope','$http','$interval','$
 	
 	$scope.send = function(){
 		var count = 60;
-		$http.get('data/code.json').then(function(res){
+		$http.get('/recruit-webapp/data/code.json').then(function(res){
 			if(res.data.state === 1){
 				$scope.time= '60s';
 				var interval = $interval(function(){
@@ -247,7 +247,7 @@ angular.module('app').controller('registerCtrl',['$scope','$http','$interval','$
 angular.module('app').controller('searchCtrl',['$scope','$http','dict', function($scope,$http,dict){
 	$scope.name = '';
 	$scope.search = function(){
-		$http.get('data/positionList.json?name='+$scope.name).then(function(res){
+		$http.get('/recruit-webapp/data/positionList.json?name='+$scope.name).then(function(res){
 			$scope.positionList = res.data;
 		});
 	};
@@ -400,7 +400,7 @@ angular.module('app').directive('appPositionInfo',['$http',function($http){
 			
 			scope.favorite = function(){
 				console.log(scope.pos)
-				$http.post('data/favorite.json',{
+				$http.post('/recruit-webapp/data/favorite.json',{
 					id: scope.pos.id,
 					select: !scope.pos.select
 				}).then(function(res){
@@ -424,7 +424,7 @@ angular.module('app').directive('appPositionList',['$http',function($http){
 		},
 		link : function(scope){
 			scope.select = function(item){
-				$http.post('data/favorite.json',{id:item.id,select:!item.select}).then(function(res){
+				$http.post('/recruit-webapp/data/favorite.json',{id:item.id,select:!item.select}).then(function(res){
 					item.select = !item.select;
 				})
 
