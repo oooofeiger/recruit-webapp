@@ -40,39 +40,39 @@ angular.module('app').config(['$provide', function($provide){
 angular.module('app').config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
 	$stateProvider.state('main', {
 		url: '/main',
-		templateUrl : "recruit-webapp/view/main.html",
+		templateUrl : "../view/main.html",
 		controller: 'mainCtrl'
 	}).state('position', {
 		url : '/position/:id',
-		templateUrl : 'recruit-webapp/view/position.html',
+		templateUrl : '../view/position.html',
 		controller: 'positionCtrl'
 	}).state('company', {
 		url : '/company/:id',
-		templateUrl : 'recruit-webapp/view/company.html',
+		templateUrl : '../view/company.html',
 		controller: 'companyCtrl'
 	}).state('search', {
 		url : '/search/',
-		templateUrl : 'recruit-webapp/view/search.html',
+		templateUrl : '../view/search.html',
 		controller: 'searchCtrl'
 	}).state('login', {
 		url : '/login/',
-		templateUrl : 'recruit-webapp/view/login.html',
+		templateUrl : '../view/login.html',
 		controller: 'loginCtrl'
 	}).state('register', {
 		url : '/register/',
-		templateUrl : 'recruit-webapp/view/register.html',
+		templateUrl : '../view/register.html',
 		controller: 'registerCtrl'
 	}).state('favorite', {
 		url : '/favorite/',
-		templateUrl : 'recruit-webapp/view/favorite.html',
+		templateUrl : '../view/favorite.html',
 		controller: 'favoriteCtrl'
 	}).state('post', {
 		url : '/post/',
-		templateUrl : 'recruit-webapp/view/post.html',
+		templateUrl : '../view/post.html',
 		controller: 'postCtrl'
 	}).state('me', {
 		url : '/me/',
-		templateUrl : 'recruit-webapp/view/me.html',
+		templateUrl : '../view/me.html',
 		controller: 'meCtrl'
 	});
 
